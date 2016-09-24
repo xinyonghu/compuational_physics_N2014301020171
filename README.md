@@ -1,6 +1,6 @@
 # compuational_physics_N2014301020171
 谭雅琪 2014301020171 物基（2）班
- - [exercise_01](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_01)
+- [exercise_01: my english name](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_01:%20my%20english%20name)
  - [exercise_02](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_02)
  - [exercise_03](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_03)
  - [exercise_04](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_04)
