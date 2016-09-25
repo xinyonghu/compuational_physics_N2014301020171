@@ -1,5 +1,7 @@
 PART ONE
 MOVE MY ENGLISH NAME
+思路：通过在英文名前添加空格再用import os, i = os.system('cls') 指令进行清屏，建立循环。参考了一些同学的答案，学会了使用import time,
+time.sleep(time)语句进行延迟使移动更清楚。
 
 for a in range(0,30):
     import os
