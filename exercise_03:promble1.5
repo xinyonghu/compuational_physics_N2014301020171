@@ -1,0 +1,46 @@
+import pylab as pl
+import numpy as np
+NA = input("number of A = ")
+NB = input("number of B = ")
+Time_tau = input("time constant = ")
+Time_d = input("time of duration = ")
+Time_s = input("time step = ")
+class uranium_decay:
+    def __init__(self, number_of_NA = NA,number_of_NB = NB, time_constant = Time_tau, time_of_duration = Time_d, time_step = Time_s):
+    #unit of time is second 
+        self.N_A_uranium = [number_of_NA]
+        self.N_B_uranium = [number_of_NB]
+        self.t = [0]
+        self.tau = time_constant
+        self.dt = time_step
+        self.time = time_of_duration
+        self.nsteps = int(time_of_duration//time_step + 1)
+        print("Initial number of nuclei A ->", number_of_NA);\
+        print("Initial number of nuclei B ->", number_of_NB);\
+        print("Time constant ->", time_constant);\
+        print("Time step -> ", time_step);\
+        print("Total time -> ", time_of_duration);\
+    def calculate(self):
+        for i in range(self.nsteps):
+            tmpa = self.N_A_uranium[i] + (self.N_B_uranium[i]/self.tau-self.N_A_uranium[i]/self.tau) * self.dt
+            tmpb = self.N_B_uranium[i] + (self.N_A_uranium[i]/self.tau-self.N_B_uranium[i]/self.tau) * self.dt
+            self.N_A_uranium.append(tmpa)
+            self.N_B_uranium.append(tmpb)
+            self.t.append(self.t[i] + self.dt)
+    def show_results(self):
+        pl.plot(self.t, self.N_A_uranium, label = "$N_A$-time step=0.05")
+        pl.plot(self.t, self.N_B_uranium, label = "$N_B$-time_step=0.05")
+        pl.xlabel('time ($s$)')
+        pl.ylabel('Number of Nuclei')
+        t = np.linspace(0, 10, 10000)  
+        NA_analytic = (self.N_A_uranium[0] + self.N_B_uranium[0]) / 2 + 0.5 * (self.N_A_uranium[0] - self.N_B_uranium[0]) * np.exp(-2 / self.tau * t)
+        NB_analytic = (self.N_A_uranium[0] + self.N_B_uranium[0]) / 2 - 0.5 * (self.N_A_uranium[0] - self.N_B_uranium[0]) * np.exp(-2 / self.tau * t)
+        pl.plot(t, NA_analytic,  label = "theoretical value of $N_{A}$")
+        pl.plot(t, NB_analytic,  label = "theoretical value of $N_{B}$")
+        pl.legend()
+        pl.show
+
+a = uranium_decay()
+a.calculate()
+a.show_results()
+
