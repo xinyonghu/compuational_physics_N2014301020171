@@ -7,7 +7,7 @@ q=0.5
 F=1.2
 D=2.0/3.0
 
-class pendulum:
+class Pendulum:
 	def __init__(self,w,x,t):
 		self.w=[w]
 		self.x=[x]
@@ -25,7 +25,7 @@ class pendulum:
 		self.next_x=current_x+self.next_w*dt
 		self.next_t=current_t+dt
 		
-	def fire(self):
+	def chaos(self):
 		while (self.t[-1]<=50000):
 			self.update()
 			if self.next_x>np.pi:self.next_x+=-2*np.pi
@@ -56,8 +56,8 @@ class pendulum:
 		#plot(self.x,self.w,',',label='Chaos')
 		#plot(self.chosen_x,self.chosen_w)
 
-a=pendulum(0,3,0)
-a.fire()
+a=Pendulum(0,3,0)
+a.chaos()
 
 #legend(loc='best')
 show()
