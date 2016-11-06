@@ -1,80 +1,63 @@
-import math
-import matplotlib.pyplot as plt
-
-g=9.8
+from pylab import *
+import numpy as np
 l=9.8
+g=9.8
+dt=0.04
+q=0.5
+F=1.2
+D=2.0/3.0
 
-class Pendulum:
-    def __init__(self,FD=1.2,omegad=2./3,t_end=1000):
-        self.theta0=0.2
-        self.q=0.5
-        self.omega0=0
-        self.omegad=omegad
-        self.step=100
-        self.cycle=2*math.pi/self.omegad
-        self.dt=self.cycle/self.step
-        self.omegad=2./3
-        self.theta=[self.theta0]
-        self.omega=[self.omega0]
-        self.FD=FD
-        self.t=[0]
-        self.t_end=t_end
-    def phase(self):
-        while self.t[-1]<=self.t_end:
-            omegai=self.omega[-1]+(-math.sin(self.theta[-1])-self.q*self.omega[-1]+self.FD*math.sin(self.omegad*self.t[-1]))*self.dt
-            self.omega.append(omegai)
-            thetai=self.theta[-1]+omegai*self.dt
-            if thetai>math.pi:
-                thetai-=2*math.pi
-            if thetai<-math.pi:
-                thetai+=2*math.pi
-            self.theta.append(thetai)
-            ti=self.t[-1]+self.dt
-            self.t.append(ti)
-            
-    def out_phase(self,ini,color,slogan):
-        self.n=int(self.t_end//self.cycle)
-        self.new_omega=[]
-        self.new_theta=[]
-        for i in range(self.n):
-            self.xxx=int((i+ini)*self.step)
-            self.new_omega.append(self.omega[self.xxx])
-            self.new_theta.append(self.theta[self.xxx])
-        plt.scatter(self.new_theta,self.new_omega,s=0.5,c=color,label=slogan)
+class pendulum:
+	def __init__(self,w,x,t):
+		self.w=[w]
+		self.x=[x]
+		self.t=[t]
+		self.chosen_w=[]
+		self.chosen_x=[]
+		self.chosen_t=[]
 
-    def pl(self,style,slogan):
-        plt.plot(self.t,self.omega,style,label=slogan)
-     
+	def update(self):
+		global g,dt,l
+		current_w=self.w[-1]
+		current_x=self.x[-1]
+		current_t=self.t[-1]
+		self.next_w=current_w-(g/l*np.sin(current_x)+q*current_w-F*sin(D*current_t))*dt
+		self.next_x=current_x+self.next_w*dt
+		self.next_t=current_t+dt
+		
+	def fire(self):
+		while (self.t[-1]<=50000):
+			self.update()
+			if self.next_x>np.pi:self.next_x+=-2*np.pi
+			else:
+				if self.next_x<-np.pi:self.next_x+=2*np.pi
+				else:self.next_x=self.next_x
+			self.w.append(self.next_w)
+			self.x.append(self.next_x)
+			self.t.append(self.next_t)
+			test=((self.t[-1]*D)%np.pi)/np.pi
+			test2=self.t[-1]-int(self.t[-1]/np.pi)*np.pi
+			#print test
+			if (test<=0.01):
+				if (test2<=1):
+					self.chosen_x.append(self.next_x)
+					self.chosen_w.append(self.next_w)
+					self.chosen_t.append(self.next_t)
+				else:
+					pass
+			else:
+				pass
 
 
-    
-    
-plt.subplot(221)
-A.out_phase(ini=0,color='b',slogan=r'$t\approx 2\pi n/\Omega_D$')
-plt.xlabel('$\omega$(rad)')
-plt.ylabel('$\theta$(rad)')
-plt.grid()
-plt.legend()
+		plot(self.chosen_x,self.chosen_w,',')
 
-plt.subplot(222)
-A.out_phase(ini=0.25,color='b',slogan=r'$t\approx 2\pi n/\Omega_D+\pi/4$')
-plt.xlabel('$\omega$(rad)')
-plt.ylabel('$\theta$(rad)')
-plt.grid()
-plt.legend()
 
-plt.subplot(223)
-A.out_phase(ini=0.5,color='b',slogan=r'$t\approx 2\pi n/\Omega_D+\pi/2$')
-plt.xlabel('$\omega$(rad)')
-plt.ylabel('$\theta$(rad)')
-plt.grid()
-plt.legend()
 
-plt.subplot(224)
-A.out_phase(ini=0.75,color='b',slogan=r'$t\approx 2\pi n/\Omega_D+3\pi /4$')
-plt.xlabel('$\omega$(rad)')
-plt.ylabel('$\theta$(rad)')
-plt.grid()
-plt.legend()
+		#plot(self.x,self.w,',',label='Chaos')
+		#plot(self.chosen_x,self.chosen_w)
 
-plt.show()
+a=pendulum(0,3,0)
+a.fire()
+
+#legend(loc='best')
+show()
