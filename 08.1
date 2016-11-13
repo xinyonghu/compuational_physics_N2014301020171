@@ -1,1 +1,40 @@
-
+import matplotlib
+import math
+wd=float(2.0/3)
+m=100
+n=100000
+p=1000
+fd1=float(0.15/1000)
+class pendulum:
+    def __init__(self.theta=0.2,q=0.5):
+        self.theta1=[theta]
+        self.fd=[1.2]
+        self.q=q
+        self.dt=2*math.pi/wd/m
+        self.w1=[0]
+        self.t=[0]
+    def calculate(self):
+        for i in range(n):
+            self.w1.append(self.w1[i]+(-math.sin(self.theta1[i])-self.q*self.w1[i]+self.fd[0]*math.sin(wd*self.t[i]))self.dt)
+            self.theta1.append(self.theta1[i]+self.w1[i+1]*self.dt)
+            self.t.append(self.dt*(i+1))
+            if self.theta1[i+1]<-math.pi:
+                self.theta1[i+1]=self.theta1[i+1]+2*math.pi
+            if self.theta1[i+1]>math.pi:
+                self.theta1[i+1]=self.theta1[i+1]-2*math.pi
+        self.the1=[]
+        self.w_01=[]
+        for k in range(n):
+            self.the1.append(self.theta1[m*k])
+            self.w_01.append(self.w1[m*k])
+    def show_results(self.color):
+        ax1=plt.subplot(221)
+        plt.sca(ax1)
+        plt.scatter(self.the1,self.w_01,s=1)
+        plt.title('omega versus theta,Fd=1.2')
+        plt.xlabel('theta(radians)')
+        plt.ylabel('omega(radians/s)')
+a=pendulum()
+a.calculate()
+a.show_results()
+plt.show()
