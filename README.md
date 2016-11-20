@@ -1,4 +1,4 @@
-7- [exercise_04:problem 2.6](https://www.zybuluo.com/xinyonghu/note/534135)
+
 
 # compuational_physics_N2014301020171
 谭雅琪 2014301020171 物基（2）班
@@ -9,6 +9,6 @@
 - [exercise_05:problem 2.10](https://www.zybuluo.com/xinyonghu/note/542472)
 - [exercise_06:problem 3.12](https://www.zybuluo.com/xinyonghu/note/550060)
 - [exercise_07:problem 3.18](https://www.zybuluo.com/xinyonghu/note/565814)
-- [exercise_08](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_08)
+- [exercise_08:problem 3.31](https://www.zybuluo.com/xinyonghu/note/573424)
 - [exercise_09](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_09)
 - [exercise_10](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_10)
