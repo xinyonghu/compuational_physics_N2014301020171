@@ -13,4 +13,4 @@ https://www.zybuluo.com/xinyonghu/note/624718
 - [exercise_10:problem 4.20](https://www.zybuluo.com/xinyonghu/note/589812)
 - [exercise_11:problem 5.3](https://www.zybuluo.com/xinyonghu/note/597594)
 - [exercise_12:problem 6.12](https://www.zybuluo.com/xinyonghu/note/604860)
-- [exercise_12:problem 6.12](https://www.zybuluo.com/xinyonghu/note/624718)
+- [final work](https://www.zybuluo.com/xinyonghu/note/624718)
