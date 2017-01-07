@@ -1,4 +1,4 @@
-
+https://www.zybuluo.com/xinyonghu/note/624718
 # compuational_physics_N2014301020171
 谭雅琪 2014301020171 物基（2）班
 - [exercise_01: my english name](https://github.com/xinyonghu/compuational_physics_N2014301020171/blob/master/exercise_01:%20my%20english%20name)
@@ -13,3 +13,4 @@
 - [exercise_10:problem 4.20](https://www.zybuluo.com/xinyonghu/note/589812)
 - [exercise_11:problem 5.3](https://www.zybuluo.com/xinyonghu/note/597594)
 - [exercise_12:problem 6.12](https://www.zybuluo.com/xinyonghu/note/604860)
+- [exercise_12:problem 6.12](https://www.zybuluo.com/xinyonghu/note/624718)
